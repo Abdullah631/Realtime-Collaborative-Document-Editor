@@ -2,9 +2,9 @@ import { z } from "zod";
 
 const EnvSchema = z.object({
   PORT: z.coerce.number().int().positive().default(4000),
-  SUPABASE_URL: z.url(),
+  SUPABASE_URL: z.string().trim().pipe(z.url()),
   // Server-only key (service_role / sb_secret_...). Never ship this to the browser.
-  SUPABASE_SECRET_KEY: z.string().min(20),
+  SUPABASE_SECRET_KEY: z.string().trim().min(20),
   // Comma-separated list of browser origins allowed to call the REST API.
   WEB_ORIGINS: z
     .string()
