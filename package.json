@@ -1,0 +1,11 @@
+{
+  "name": "ajaia-docs",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix server ci && npm --prefix web ci",
+    "dev:server": "npm --prefix server run dev",
+    "dev:web": "npm --prefix web run dev",
+    "test": "npm --prefix server test",
+    "check": "npm --prefix server run typecheck && npm --prefix server test && npm --prefix web run lint && npm --prefix web run build"
+  }
+}

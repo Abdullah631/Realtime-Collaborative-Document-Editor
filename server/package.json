@@ -1,0 +1,54 @@
+{
+  "name": "docs-server",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "seed": "tsx --env-file-if-exists=.env scripts/seed.ts",
+    "migrate": "node --env-file-if-exists=.env scripts/migrate.mjs"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@hocuspocus/extension-database": "^4.7.1",
+    "@hocuspocus/server": "^4.7.1",
+    "@supabase/supabase-js": "^2.117.3",
+    "@tiptap/core": "^3.32.0",
+    "@tiptap/extension-text-style": "^3.32.0",
+    "@tiptap/html": "^3.32.0",
+    "@tiptap/pm": "^3.32.0",
+    "@tiptap/starter-kit": "^3.32.0",
+    "@tiptap/y-tiptap": "^3.0.10",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "happy-dom": "^20.14.6",
+    "helmet": "^8.3.0",
+    "mammoth": "^1.13.0",
+    "marked": "^18.1.1",
+    "multer": "^2.4.0",
+    "postgres": "^3.4.9",
+    "yjs": "^13.6.33",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@hocuspocus/provider": "^4.7.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.3.0",
+    "@types/node": "^26.6.5",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.4"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20.19"
+  }
+}

@@ -1,0 +1,22 @@
+# Render Blueprint: API + realtime (WebSocket) server.
+# The Next.js frontend deploys separately on Vercel (root directory: web).
+services:
+  - type: web
+    name: ajaia-docs-server
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm ci && npm run build && npm run migrate
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false # Supabase Session pooler URI, used by migrations at build time
+      - key: WEB_ORIGINS
+        sync: false # e.g. https://your-app.vercel.app,http://localhost:3000
